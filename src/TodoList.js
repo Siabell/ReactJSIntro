@@ -11,7 +11,7 @@ export class TodoList extends React.Component {
     
 
     render() {
-        const data = this.props.todoList;
+        const data = this.props.items;
         const todoLis = data.map((todo,i) => (
             <li key={'todo-'+i}><Todo text={todo.text} priority={todo.priority} dueDate={todo.dueDate} /></li>
         ));

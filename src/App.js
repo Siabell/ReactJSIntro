@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {TodoList} from './TodoList';
+import TodoApp from './TodoApp';
 
 function App() {
   const todos = [
@@ -10,7 +11,7 @@ function App() {
     {text:"write TODO App", priority:3, dueDate: new Date(2020,1,30).toDateString() }];
   return (
     <div>
-      <TodoList todoList={todos}/>
+      <TodoApp />
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
