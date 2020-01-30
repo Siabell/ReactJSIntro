@@ -1,7 +1,7 @@
 import React from 'react';
 import {TodoList} from './TodoList';
 
- class TodoApp extends React.Component {
+class TodoApp extends React.Component {
     constructor(props) {
       super(props);
       this.state = { items: [{text:"Learn React", priority:5, dueDate: new Date().toDateString() },
@@ -21,23 +21,26 @@ import {TodoList} from './TodoList';
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="new-todo">
               Do you want to add another?
-            </label>
+            </label><br></br><br></br>
+            text : 
             <input
               id="new-todoText"
               onChange={this.handleChange}
               value={this.state.text}
-            />
+            /><br></br>
+            priority : 
             <input
               id="new-todoPrior"
               onChange={this.handleChangePrior}
               value={this.state.priority}
-            />
+            /><br></br>
+            Due date :
             <input
               type="date"
               id="new-todoDate"
               onChange={this.handleChangeDate}
               value={this.state.dueDate}
-            />
+            /><br></br><br></br>
             <button>
               Add #{this.state.items.length + 1}
             </button>
@@ -65,12 +68,14 @@ import {TodoList} from './TodoList';
       const newItem = {
         text: this.state.text,
         priority : this.state.priority,
-        dueDate : this.state.dueDate,
+        dueDate : new Date(this.state.dueDate).toDateString(),
         id: Date.now()
       };
       this.setState(prevState => ({
         items: prevState.items.concat(newItem),
-        text: ''
+        text: '',
+        priority: '',
+        dueDate: ''
       }));
     }
   }
